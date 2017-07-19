@@ -1,23 +1,46 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>The TREE Demo </title>  
-  <meta name="author" content="RDAS">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
-  <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>  
+    <meta charset="utf-8">
+    <title>The TREE Demo </title>
+    <meta name="author" content="RDAS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <!-- https://www.youtube.com/watch?v=kE-W4gE7NBw -->
 </head>
 
 <body ng-app="treeDemoApp" ng-controller="homeController as ctrl">
-    
+    <ng-tree></ng-tree>
+
     <div class="container">
-        {{ctrl.tableTitle}}
+        <h4>{{ctrl.tableTitle}} :)) </h4>
+        <input type="checkbox" name="selectionAll" ng-model="ctrl.selectAll"> Select All </input>
+        <br/>
+        <script type="text/ng-template" id="treelevel.html">
+            <!--{{ctrl.treeItems}}-->
+            <ul>
+                <li ng-repeat="treeItem in ctrl.treeItems">
+                    <input type="checkbox" name="itemSelection" ng-model="item._Selected" /> {{treeItem.text}}
+                    <!--<div ng-include=" 'treelevel.html' " onLoad="treeItem.children"></div>-->
+                    <ul>
+                        <li ng-repeat="treeItem2 in treeItem.children">
+                            {{treeItem2.text}}
+                            <ul>
+                                <li ng-repeat="treeItem3 in treeItem2.children">
+                                    {{treeItem3.text}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </script>
+        <div ng-include=" 'treelevel.html' ">
+        </div>
     </div>
-    <script type="text/ng-template" id="treelevel.html">
-        <h4>:)) </h4>
-    </script>
-    <div ng-include=" 'treelevel.html' ">
-    </div>
-  <script type="application/javascript" src="app.js"></script>
+
+    <script type="application/javascript" src="app.js"></script>
 </body>
+
 </html>
