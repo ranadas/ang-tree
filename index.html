@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The TREE Demo </title>  
+  <meta name="author" content="RDAS">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+  <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>  
+</head>
+
+<body ng-app="treeDemoApp" ng-controller="homeController as ctrl">
+    
+    <div class="container">
+        {{ctrl.tableTitle}}
+    </div>
+    <script type="text/ng-template" id="treelevel.html">
+        <h4>:)) </h4>
+    </script>
+    <div ng-include=" 'treelevel.html' ">
+    </div>
+  <script type="application/javascript" src="app.js"></script>
+</body>
+</html>
