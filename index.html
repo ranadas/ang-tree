@@ -6,12 +6,33 @@
     <title>The Interactive TREE </title>
     <meta name="author" content="RDAS">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
-    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+
+    <link rel="stylesheet" href="csslib/integralui.css" />
+    <link rel="stylesheet" href="csslib/integralui.checkbox.css" />
+    <link rel="stylesheet" href="csslib/integralui.treeview.css" />
+    <link rel="stylesheet" href="csslib/theme-flat-blue.css" />
+
+    <link rel="stylesheet" href="treestyle.css">
 </head>
 
 <body ng-app="treeTable" ng-controller="treeTableController as ctrl">
+    <!--<iui-treeview name="{{ctrl.treeName}}" 
+        items="ctrl.treeItems" item-icon="ctrl.itemIcon" 
+        show-check-boxes="true" 
+        checkbox-settings="ctrl.checkBoxSettings">
+    </iui-treeview>-->
 
+    <iui-treeview name="{{treeName}}" 
+        items="ctrl.treeItems" show-check-boxes="true" 
+        checkbox-settings="ctrl.checkBoxSettings" 
+        item-checkstate-changing="ctrl.itemCheckStateChanging(e)">
+    </iui-treeview>
 
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script type="application/javascript" src="jslib/angular.integralui.min.js"></script>
+    <script type="application/javascript" src="jslib/angular.integralui.lists.min.js"></script>
+    <script type="application/javascript" src="jslib/angular.integralui.checkbox.min.js"></script>
+    <script type="application/javascript" src="jslib/angular.integralui.treeview.min.js"></script>
     <script type="application/javascript" src="interactive-tree.js"></script>
 </body>
 
